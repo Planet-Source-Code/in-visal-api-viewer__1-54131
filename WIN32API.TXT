@@ -1,0 +1,1267 @@
+' Type definitions for Windows' basic types.
+Const ANYSIZE_ARRAY = 1
+Type RECT
+        Left As Long
+        Top As Long
+        Right As Long
+        Bottom As Long
+End Type
+Type RECTL
+        Left As Long
+        Top As Long
+        Right As Long
+        Bottom As Long
+End Type
+Type POINTAPI
+        x As Long
+        y As Long
+End Type
+Type POINTL
+        x As Long
+        y As Long
+End Type
+Type Size
+        cx As Long
+        cy As Long
+End Type
+Type POINTS
+        x  As Integer
+        y  As Integer
+End Type
+Type MSG
+    hwnd As Long
+    message As Long
+    wParam As Long
+    lParam As Long
+    time As Long
+    pt As POINTAPI
+End Type
+Const DELETE = &H10000
+Const READ_CONTROL = &H20000
+Const WRITE_DAC = &H40000
+Const WRITE_OWNER = &H80000
+Const SYNCHRONIZE = &H100000
+Const STANDARD_RIGHTS_READ = (READ_CONTROL)
+Const STANDARD_RIGHTS_WRITE = (READ_CONTROL)
+Const STANDARD_RIGHTS_EXECUTE = (READ_CONTROL)
+Const STANDARD_RIGHTS_REQUIRED = &HF0000
+Const STANDARD_RIGHTS_ALL = &H1F0000
+Const SPECIFIC_RIGHTS_ALL = &HFFFF
+Type SID_IDENTIFIER_AUTHORITY
+        Value(6) As Byte
+End Type
+Const SID_REVISION = (1)                         '  Current revision level
+Const SID_MAX_SUB_AUTHORITIES = (15)
+Const SID_RECOMMENDED_SUB_AUTHORITIES = (1)    ' Will change to around 6 in a future release.
+Const SidTypeUser = 1
+Const SidTypeGroup = 2
+Const SidTypeDomain = 3
+Const SidTypeAlias = 4
+Const SidTypeWellKnownGroup = 5
+Const SidTypeDeletedAccount = 6
+Const SidTypeInvalid = 7
+Const SidTypeUnknown = 8
+Type SID_AND_ATTRIBUTES
+        Sid As Long
+        Attributes As Long
+End Type
+Const SECURITY_NULL_RID = &H0
+Const SECURITY_WORLD_RID = &H0
+Const SECURITY_LOCAL_RID = &H0
+Const SECURITY_CREATOR_OWNER_RID = &H0
+Const SECURITY_CREATOR_GROUP_RID = &H1
+Const SECURITY_DIALUP_RID = &H1
+Const SECURITY_NETWORK_RID = &H2
+Const SECURITY_BATCH_RID = &H3
+Const SECURITY_INTERACTIVE_RID = &H4
+Const SECURITY_SERVICE_RID = &H6
+Const SECURITY_ANONYMOUS_LOGON_RID = &H7
+Const SECURITY_LOGON_IDS_RID = &H5
+Const SECURITY_LOCAL_SYSTEM_RID = &H12
+Const SECURITY_NT_NON_UNIQUE = &H15
+Const SECURITY_BUILTIN_DOMAIN_RID = &H20
+Const DOMAIN_USER_RID_ADMIN = &H1F4
+Const DOMAIN_USER_RID_GUEST = &H1F5
+Const DOMAIN_GROUP_RID_ADMINS = &H200
+Const DOMAIN_GROUP_RID_USERS = &H201
+Const DOMAIN_GROUP_RID_GUESTS = &H202
+Const DOMAIN_ALIAS_RID_ADMINS = &H220
+Const DOMAIN_ALIAS_RID_USERS = &H221
+Const DOMAIN_ALIAS_RID_GUESTS = &H222
+Const DOMAIN_ALIAS_RID_POWER_USERS = &H223
+Const DOMAIN_ALIAS_RID_ACCOUNT_OPS = &H224
+Const DOMAIN_ALIAS_RID_SYSTEM_OPS = &H225
+Const DOMAIN_ALIAS_RID_PRINT_OPS = &H226
+Const DOMAIN_ALIAS_RID_BACKUP_OPS = &H227
+Const DOMAIN_ALIAS_RID_REPLICATOR = &H228
+Const SE_GROUP_MANDATORY = &H1
+Const SE_GROUP_ENABLED_BY_DEFAULT = &H2
+Const SE_GROUP_ENABLED = &H4
+Const SE_GROUP_OWNER = &H8
+Const SE_GROUP_LOGON_ID = &HC0000000
+Const FILE_BEGIN = 0
+Const FILE_CURRENT = 1
+Const FILE_END = 2
+Const FILE_FLAG_WRITE_THROUGH = &H80000000
+Const FILE_FLAG_OVERLAPPED = &H40000000
+Const FILE_FLAG_NO_BUFFERING = &H20000000
+Const FILE_FLAG_RANDOM_ACCESS = &H10000000
+Const FILE_FLAG_SEQUENTIAL_SCAN = &H8000000
+Const FILE_FLAG_DELETE_ON_CLOSE = &H4000000
+Const FILE_FLAG_BACKUP_SEMANTICS = &H2000000
+Const FILE_FLAG_POSIX_SEMANTICS = &H1000000
+Const CREATE_NEW = 1
+Const CREATE_ALWAYS = 2
+Const OPEN_EXISTING = 3
+Const OPEN_ALWAYS = 4
+Const TRUNCATE_EXISTING = 5
+' Define the dwOpenMode values for CreateNamedPipe
+Const PIPE_ACCESS_INBOUND = &H1
+Const PIPE_ACCESS_OUTBOUND = &H2
+Const PIPE_ACCESS_DUPLEX = &H3
+' Define the Named Pipe End flags for GetNamedPipeInfo
+Const PIPE_CLIENT_END = &H0
+Const PIPE_SERVER_END = &H1
+' Define the dwPipeMode values for CreateNamedPipe
+Const PIPE_WAIT = &H0
+Const PIPE_NOWAIT = &H1
+Const PIPE_READMODE_BYTE = &H0
+Const PIPE_READMODE_MESSAGE = &H2
+Const PIPE_TYPE_BYTE = &H0
+Const PIPE_TYPE_MESSAGE = &H4
+' Define the well known values for CreateNamedPipe nMaxInstances
+Const PIPE_UNLIMITED_INSTANCES = 255
+' Define the Security Quality of Service bits to be passed
+'  into CreateFile
+Const SECURITY_CONTEXT_TRACKING = &H40000
+Const SECURITY_EFFECTIVE_ONLY = &H80000
+Const SECURITY_SQOS_PRESENT = &H100000
+Const SECURITY_VALID_SQOS_FLAGS = &H1F0000
+Type OVERLAPPED
+        Internal As Long
+        InternalHigh As Long
+        offset As Long
+        OffsetHigh As Long
+        hEvent As Long
+End Type
+Type SECURITY_ATTRIBUTES
+        nLength As Long
+        lpSecurityDescriptor As Long
+        bInheritHandle As Long 
+End Type
+Type PROCESS_INFORMATION
+        hProcess As Long
+        hThread As Long
+        dwProcessId As Long
+        dwThreadId As Long
+End Type
+Type FILETIME
+        dwLowDateTime As Long
+        dwHighDateTime As Long
+End Type
+Type SYSTEMTIME
+        wYear As Integer
+        wMonth As Integer
+        wDayOfWeek As Integer
+        wDay As Integer
+        wHour As Integer
+        wMinute As Integer
+        wSecond As Integer
+        wMilliseconds As Integer
+End Type
+'  Serial provider type.
+Const SP_SERIALCOMM = &H1&
+'  Provider SubTypes
+Const PST_UNSPECIFIED = &H0&
+Const PST_RS232 = &H1&
+Const PST_PARALLELPORT = &H2&
+Const PST_RS422 = &H3&
+Const PST_RS423 = &H4&
+Const PST_RS449 = &H5&
+Const PST_FAX = &H21&
+Const PST_SCANNER = &H22&
+Const PST_NETWORK_BRIDGE = &H100&
+Const PST_LAT = &H101&
+Const PST_TCPIP_TELNET = &H102&
+Const PST_X25 = &H103&
+'  Provider capabilities flags.
+Const PCF_DTRDSR = &H1&
+Const PCF_RTSCTS = &H2&
+Const PCF_RLSD = &H4&
+Const PCF_PARITY_CHECK = &H8&
+Const PCF_XONXOFF = &H10&
+Const PCF_SETXCHAR = &H20&
+Const PCF_TOTALTIMEOUTS = &H40&
+Const PCF_INTTIMEOUTS = &H80&
+Const PCF_SPECIALCHARS = &H100&
+Const PCF_16BITMODE = &H200&
+'  Comm provider settable parameters.
+Const SP_PARITY = &H1&
+Const SP_BAUD = &H2&
+Const SP_DATABITS = &H4&
+Const SP_STOPBITS = &H8&
+Const SP_HANDSHAKING = &H10&
+Const SP_PARITY_CHECK = &H20&
+Const SP_RLSD = &H40&
+'  Settable baud rates in the provider.
+Const BAUD_075 = &H1&
+Const BAUD_110 = &H2&
+Const BAUD_134_5 = &H4&
+Const BAUD_150 = &H8&
+Const BAUD_300 = &H10&
+Const BAUD_600 = &H20&
+Const BAUD_1200 = &H40&
+Const BAUD_1800 = &H80&
+Const BAUD_2400 = &H100&
+Const BAUD_4800 = &H200&
+Const BAUD_7200 = &H400&
+Const BAUD_9600 = &H800&
+Const BAUD_14400 = &H1000&
+Const BAUD_19200 = &H2000&
+Const BAUD_38400 = &H4000&
+Const BAUD_56K = &H8000&
+Const BAUD_128K = &H10000
+Const BAUD_115200 = &H20000
+Const BAUD_57600 = &H40000
+Const BAUD_USER = &H10000000
+'  Settable Data Bits
+Const DATABITS_5 = &H1&
+Const DATABITS_6 = &H2&
+Const DATABITS_7 = &H4&
+Const DATABITS_8 = &H8&
+Const DATABITS_16 = &H10&
+Const DATABITS_16X = &H20&
+'  Settable Stop and Parity bits.
+Const STOPBITS_10 = &H1&
+Const STOPBITS_15 = &H2&
+Const STOPBITS_20 = &H4&
+Const PARITY_NONE = &H100&
+Const PARITY_ODD = &H200&
+Const PARITY_EVEN = &H400&
+Const PARITY_MARK = &H800&
+Const PARITY_SPACE = &H1000&
+Type COMMPROP
+        wPacketLength As Integer
+        wPacketVersion As Integer
+        dwServiceMask As Long
+        dwReserved1 As Long
+        dwMaxTxQueue As Long
+        dwMaxRxQueue As Long
+        dwMaxBaud As Long
+        dwProvSubType As Long
+        dwProvCapabilities As Long
+        dwSettableParams As Long
+        dwSettableBaud As Long
+        wSettableData As Integer
+        wSettableStopParity As Integer
+        dwCurrentTxQueue As Long
+        dwCurrentRxQueue As Long
+        dwProvSpec1 As Long
+        dwProvSpec2 As Long
+        wcProvChar(1) As Integer
+End Type
+'Type COMSTAT
+'        fCtsHold As Long
+'        fDsrHold As Long
+'        fRlsdHold As Long
+'        fXoffHold As Long
+'        fXoffSent As Long
+'        fEof As Long
+'        fTxim As Long
+'        fReserved As Long
+'        cbInQue As Long
+'        cbOutQue As Long
+'End Type
+Type COMSTAT
+        fBitFields As Long 'See Comment in Win32API.Txt
+        cbInQue As Long
+        cbOutQue As Long
+End Type
+' The eight actual COMSTAT bit-sized data fields within the four bytes of fBitFields can be manipulated by bitwise logical And/Or operations.
+'  DTR Control Flow Values.
+Const DTR_CONTROL_DISABLE = &H0
+Const DTR_CONTROL_ENABLE = &H1
+Const DTR_CONTROL_HANDSHAKE = &H2
+'  RTS Control Flow Values
+Const RTS_CONTROL_DISABLE = &H0
+Const RTS_CONTROL_ENABLE = &H1
+Const RTS_CONTROL_HANDSHAKE = &H2
+Const RTS_CONTROL_TOGGLE = &H3
+Type DCB
+        DCBlength As Long
+        BaudRate As Long
+        fBitFields As Long 'See Comments in Win32API.Txt
+        wReserved As Integer
+        XonLim As Integer
+        XoffLim As Integer
+        ByteSize As Byte
+        Parity As Byte
+        StopBits As Byte
+        XonChar As Byte
+        XoffChar As Byte
+        ErrorChar As Byte
+        EofChar As Byte
+        EvtChar As Byte
+        wReserved1 As Integer 'Reserved; Do Not Use 
+End Type
+' The fourteen actual DCB bit-sized data fields within the four bytes of fBitFields can be manipulated by bitwise logical And/Or operations.
+' fDummy2                16       reserved 
+Type COMMTIMEOUTS
+        ReadIntervalTimeout As Long
+        ReadTotalTimeoutMultiplier As Long
+        ReadTotalTimeoutConstant As Long
+        WriteTotalTimeoutMultiplier As Long
+        WriteTotalTimeoutConstant As Long
+End Type
+Type SYSTEM_INFO
+        dwOemID As Long
+        dwPageSize As Long
+        lpMinimumApplicationAddress As Long
+        lpMaximumApplicationAddress As Long
+        dwActiveProcessorMask As Long
+        dwNumberOrfProcessors As Long
+        dwProcessorType As Long
+        dwAllocationGranularity As Long
+        dwReserved As Long
+End Type
+' Global Memory Flags
+Const GMEM_FIXED = &H0
+Const GMEM_MOVEABLE = &H2
+Const GMEM_NOCOMPACT = &H10
+Const GMEM_NODISCARD = &H20
+Const GMEM_ZEROINIT = &H40
+Const GMEM_MODIFY = &H80
+Const GMEM_DISCARDABLE = &H100
+Const GMEM_NOT_BANKED = &H1000
+Const GMEM_SHARE = &H2000
+Const GMEM_DDESHARE = &H2000
+Const GMEM_NOTIFY = &H4000
+Const GMEM_LOWER = GMEM_NOT_BANKED
+Const GMEM_VALID_FLAGS = &H7F72
+Const GMEM_INVALID_HANDLE = &H8000
+Const GHND = (GMEM_MOVEABLE Or GMEM_ZEROINIT)
+Const GPTR = (GMEM_FIXED Or GMEM_ZEROINIT)
+' Flags returned by GlobalFlags (in addition to GMEM_DISCARDABLE)
+Const GMEM_DISCARDED = &H4000
+Const GMEM_LOCKCOUNT = &HFF
+Type MEMORYSTATUS
+        dwLength As Long
+        dwMemoryLoad As Long
+        dwTotalPhys As Long
+        dwAvailPhys As Long
+        dwTotalPageFile As Long
+        dwAvailPageFile As Long
+        dwTotalVirtual As Long
+        dwAvailVirtual As Long
+End Type
+' Local Memory Flags
+Const LMEM_FIXED = &H0
+Const LMEM_MOVEABLE = &H2
+Const LMEM_NOCOMPACT = &H10
+Const LMEM_NODISCARD = &H20
+Const LMEM_ZEROINIT = &H40
+Const LMEM_MODIFY = &H80
+Const LMEM_DISCARDABLE = &HF00
+Const LMEM_VALID_FLAGS = &HF72
+Const LMEM_INVALID_HANDLE = &H8000
+Const LHND = (LMEM_MOVEABLE + LMEM_ZEROINIT)
+Const LPTR = (LMEM_FIXED + LMEM_ZEROINIT)
+Const NONZEROLHND = (LMEM_MOVEABLE)
+Const NONZEROLPTR = (LMEM_FIXED)
+' Flags returned by LocalFlags (in addition to LMEM_DISCARDABLE)
+Const LMEM_DISCARDED = &H4000
+Const LMEM_LOCKCOUNT = &HFF
+'  dwCreationFlag values
+Const DEBUG_PROCESS = &H1
+Const DEBUG_ONLY_THIS_PROCESS = &H2
+Const CREATE_SUSPENDED = &H4
+Const DETACHED_PROCESS = &H8
+Const CREATE_NEW_CONSOLE = &H10
+Const NORMAL_PRIORITY_CLASS = &H20
+Const IDLE_PRIORITY_CLASS = &H40
+Const HIGH_PRIORITY_CLASS = &H80
+Const REALTIME_PRIORITY_CLASS = &H100
+Const CREATE_NEW_PROCESS_GROUP = &H200
+Const CREATE_NO_WINDOW = &H8000000
+Const PROFILE_USER = &H10000000
+Const PROFILE_KERNEL = &H20000000
+Const PROFILE_SERVER = &H40000000
+Const MAXLONG = &H7FFFFFFF
+Const THREAD_BASE_PRIORITY_MIN = -2
+Const THREAD_BASE_PRIORITY_MAX = 2
+Const THREAD_BASE_PRIORITY_LOWRT = 15
+Const THREAD_BASE_PRIORITY_IDLE = -15
+Const THREAD_PRIORITY_LOWEST = THREAD_BASE_PRIORITY_MIN
+Const THREAD_PRIORITY_BELOW_NORMAL = (THREAD_PRIORITY_LOWEST + 1)
+Const THREAD_PRIORITY_NORMAL = 0
+Const THREAD_PRIORITY_HIGHEST = THREAD_BASE_PRIORITY_MAX
+Const THREAD_PRIORITY_ABOVE_NORMAL = (THREAD_PRIORITY_HIGHEST - 1)
+Const THREAD_PRIORITY_ERROR_RETURN = (MAXLONG)
+Const THREAD_PRIORITY_TIME_CRITICAL = THREAD_BASE_PRIORITY_LOWRT
+Const THREAD_PRIORITY_IDLE = THREAD_BASE_PRIORITY_IDLE
+' ++ BUILD Version: 0093     Increment this if a change has global effects
+' Copyright (c) 1990-1995  Microsoft Corporation
+' Module Name:
+'     winnt.h
+' Abstract:
+'     This module defines the 32-Bit Windows types and constants that are
+'     defined by NT, but exposed through the Win32 API.
+' Revision History:
+Const APPLICATION_ERROR_MASK = &H20000000
+Const ERROR_SEVERITY_SUCCESS = &H0
+Const ERROR_SEVERITY_INFORMATIONAL = &H40000000
+Const ERROR_SEVERITY_WARNING = &H80000000
+Const ERROR_SEVERITY_ERROR = &HC0000000
+Const MINCHAR = &H80
+Const MAXCHAR = &H7F
+Const MINSHORT = &H8000
+Const MAXSHORT = &H7FFF
+Const MINLONG = &H80000000
+Const MAXByte = &HFF
+Const MAXWORD = &HFFFF
+Const MAXDWORD = &HFFFF
+Const LANG_NEUTRAL = &H0
+Const LANG_BULGARIAN = &H2
+Const LANG_CHINESE = &H4
+Const LANG_CROATIAN = &H1A
+Const LANG_CZECH = &H5
+Const LANG_DANISH = &H6
+Const LANG_DUTCH = &H13
+Const LANG_ENGLISH = &H9
+Const LANG_FINNISH = &HB
+Const LANG_FRENCH = &HC
+Const LANG_GERMAN = &H7
+Const LANG_GREEK = &H8
+Const LANG_HUNGARIAN = &HE
+Const LANG_ICELANDIC = &HF
+Const LANG_ITALIAN = &H10
+Const LANG_JAPANESE = &H11
+Const LANG_KOREAN = &H12
+Const LANG_NORWEGIAN = &H14
+Const LANG_POLISH = &H15
+Const LANG_PORTUGUESE = &H16
+Const LANG_ROMANIAN = &H18
+Const LANG_RUSSIAN = &H19
+Const LANG_SLOVAK = &H1B
+Const LANG_SLOVENIAN = &H24
+Const LANG_SPANISH = &HA
+Const LANG_SWEDISH = &H1D
+Const LANG_TURKISH = &H1F
+Const SUBLANG_NEUTRAL = &H0                       '  language neutral
+Const SUBLANG_DEFAULT = &H1                       '  user default
+Const SUBLANG_SYS_DEFAULT = &H2                   '  system default
+Const SUBLANG_CHINESE_TRADITIONAL = &H1           '  Chinese (Taiwan)
+Const SUBLANG_CHINESE_SIMPLIFIED = &H2            '  Chinese (PR China)
+Const SUBLANG_CHINESE_HONGKONG = &H3              '  Chinese (Hong Kong)
+Const SUBLANG_CHINESE_SINGAPORE = &H4             '  Chinese (Singapore)
+Const SUBLANG_DUTCH = &H1                         '  Dutch
+Const SUBLANG_DUTCH_BELGIAN = &H2                 '  Dutch (Belgian)
+Const SUBLANG_ENGLISH_US = &H1                    '  English (USA)
+Const SUBLANG_ENGLISH_UK = &H2                    '  English (UK)
+Const SUBLANG_ENGLISH_AUS = &H3                   '  English (Australian)
+Const SUBLANG_ENGLISH_CAN = &H4                   '  English (Canadian)
+Const SUBLANG_ENGLISH_NZ = &H5                    '  English (New Zealand)
+Const SUBLANG_ENGLISH_EIRE = &H6                  '  English (Irish)
+Const SUBLANG_FRENCH = &H1                        '  French
+Const SUBLANG_FRENCH_BELGIAN = &H2                '  French (Belgian)
+Const SUBLANG_FRENCH_CANADIAN = &H3               '  French (Canadian)
+Const SUBLANG_FRENCH_SWISS = &H4                  '  French (Swiss)
+Const SUBLANG_GERMAN = &H1                        '  German
+Const SUBLANG_GERMAN_SWISS = &H2                  '  German (Swiss)
+Const SUBLANG_GERMAN_AUSTRIAN = &H3               '  German (Austrian)
+Const SUBLANG_ITALIAN = &H1                       '  Italian
+Const SUBLANG_ITALIAN_SWISS = &H2                 '  Italian (Swiss)
+Const SUBLANG_NORWEGIAN_BOKMAL = &H1              '  Norwegian (Bokma
+Const SUBLANG_NORWEGIAN_NYNORSK = &H2             '  Norwegian (Nynorsk)
+Const SUBLANG_PORTUGUESE = &H2                    '  Portuguese
+Const SUBLANG_PORTUGUESE_BRAZILIAN = &H1          '  Portuguese (Brazilian)
+Const SUBLANG_SPANISH = &H1                       '  Spanish (Castilian)
+Const SUBLANG_SPANISH_MEXICAN = &H2               '  Spanish (Mexican)
+Const SUBLANG_SPANISH_MODERN = &H3                '  Spanish (Modern)
+'
+'  *  Sorting IDs.
+'  *
+'  */
+Const SORT_DEFAULT = &H0                          '  sorting default
+Const SORT_JAPANESE_XJIS = &H0                    '  Japanese0xJIS order
+Const SORT_JAPANESE_UNICODE = &H1                 '  Japanese Unicode order
+Const SORT_CHINESE_BIG5 = &H0                     '  Chinese BIG5 order
+Const SORT_CHINESE_UNICODE = &H1                  '  Chinese Unicode order
+Const SORT_KOREAN_KSC = &H0                       '  Korean KSC order
+Const SORT_KOREAN_UNICODE = &H1                   '  Korean Unicode order
+'  The FILE_READ_DATA and FILE_WRITE_DATA constants are also defined in
+'  devioctl.h as FILE_READ_ACCESS and FILE_WRITE_ACCESS. The values for these
+'  constants *MUST* always be in sync.
+'  The values are redefined in devioctl.h because they must be available to
+'  both DOS and NT.
+'
+Const FILE_READ_DATA = (&H1)                     '  file pipe
+Const FILE_LIST_DIRECTORY = (&H1)                '  directory
+Const FILE_WRITE_DATA = (&H2)                    '  file pipe
+Const FILE_ADD_FILE = (&H2)                      '  directory
+Const FILE_APPEND_DATA = (&H4)                   '  file
+Const FILE_ADD_SUBDIRECTORY = (&H4)              '  directory
+Const FILE_CREATE_PIPE_INSTANCE = (&H4)          '  named pipe
+Const FILE_READ_EA = (&H8)                       '  file directory
+Const FILE_READ_PROPERTIES = FILE_READ_EA
+Const FILE_WRITE_EA = (&H10)                     '  file directory
+Const FILE_WRITE_PROPERTIES = FILE_WRITE_EA
+Const FILE_EXECUTE = (&H20)                      '  file
+Const FILE_TRAVERSE = (&H20)                     '  directory
+Const FILE_DELETE_CHILD = (&H40)                 '  directory
+Const FILE_READ_ATTRIBUTES = (&H80)              '  all
+Const FILE_WRITE_ATTRIBUTES = (&H100)            '  all
+Const FILE_ALL_ACCESS = (STANDARD_RIGHTS_REQUIRED Or SYNCHRONIZE Or &H1FF)
+Const FILE_GENERIC_READ = (STANDARD_RIGHTS_READ Or FILE_READ_DATA Or FILE_READ_ATTRIBUTES Or FILE_READ_EA Or SYNCHRONIZE)
+Const FILE_GENERIC_WRITE = (STANDARD_RIGHTS_WRITE Or FILE_WRITE_DATA Or FILE_WRITE_ATTRIBUTES Or FILE_WRITE_EA Or FILE_APPEND_DATA Or SYNCHRONIZE)
+Const FILE_GENERIC_EXECUTE = (STANDARD_RIGHTS_EXECUTE Or FILE_READ_ATTRIBUTES Or FILE_EXECUTE Or SYNCHRONIZE)
+Const FILE_SHARE_READ = &H1
+Const FILE_SHARE_WRITE = &H2
+Const FILE_ATTRIBUTE_READONLY = &H1
+Const FILE_ATTRIBUTE_HIDDEN = &H2
+Const FILE_ATTRIBUTE_SYSTEM = &H4
+Const FILE_ATTRIBUTE_DIRECTORY = &H10
+Const FILE_ATTRIBUTE_ARCHIVE = &H20
+Const FILE_ATTRIBUTE_NORMAL = &H80
+Const FILE_ATTRIBUTE_TEMPORARY = &H100
+Const FILE_ATTRIBUTE_COMPRESSED = &H800
+Const FILE_NOTIFY_CHANGE_FILE_NAME = &H1
+Const FILE_NOTIFY_CHANGE_DIR_NAME = &H2
+Const FILE_NOTIFY_CHANGE_ATTRIBUTES = &H4
+Const FILE_NOTIFY_CHANGE_SIZE = &H8
+Const FILE_NOTIFY_CHANGE_LAST_WRITE = &H10
+Const FILE_NOTIFY_CHANGE_SECURITY = &H100
+Const MAILSLOT_NO_MESSAGE = (-1)
+Const MAILSLOT_WAIT_FOREVER = (-1)
+Const FILE_CASE_SENSITIVE_SEARCH = &H1
+Const FILE_CASE_PRESERVED_NAMES = &H2
+Const FILE_UNICODE_ON_DISK = &H4
+Const FILE_PERSISTENT_ACLS = &H8
+Const FILE_FILE_COMPRESSION = &H10
+Const FILE_VOLUME_IS_COMPRESSED = &H8000
+Const IO_COMPLETION_MODIFY_STATE = &H2
+Const IO_COMPLETION_ALL_ACCESS = (STANDARD_RIGHTS_REQUIRED Or SYNCHRONIZE Or &H3)
+Const DUPLICATE_CLOSE_SOURCE = &H1
+Const DUPLICATE_SAME_ACCESS = &H2
+Const ACCESS_SYSTEM_SECURITY = &H1000000
+'  MaximumAllowed access type
+Const MAXIMUM_ALLOWED = &H2000000
+'   These are the generic rights.
+Const GENERIC_READ = &H80000000
+Const GENERIC_WRITE = &H40000000
+Const GENERIC_EXECUTE = &H20000000
+Const GENERIC_ALL = &H10000000
+'   Define the generic mapping array.  This is used to denote the
+'   mapping of each generic access right to a specific access mask.
+Type GENERIC_MAPPING
+        GenericRead As Long
+        GenericWrite As Long
+        GenericExecute As Long
+        GenericAll As Long
+End Type
+Type LUID
+	LowPart As Long
+	HighPart As Long
+End Type
+Type LUID_AND_ATTRIBUTES
+        pLuid As LUID
+        Attributes As Long
+End Type
+Const ACL_REVISION = (2)
+'  This is the history of ACL revisions.  Add a new one whenever
+'  ACL_REVISION is updated
+Const ACL_REVISION1 = (1)
+Const ACL_REVISION2 = (2)
+Type ACL
+        AclRevision As Byte
+        Sbz1 As Byte
+        AclSize As Integer
+        AceCount As Integer
+        Sbz2 As Integer
+End Type
+Type ACE_HEADER
+        AceType As Byte
+        AceFlags As Byte
+        AceSize As Long
+End Type
+Const ACCESS_ALLOWED_ACE_TYPE = &H0
+Const ACCESS_DENIED_ACE_TYPE = &H1
+Const SYSTEM_AUDIT_ACE_TYPE = &H2
+Const SYSTEM_ALARM_ACE_TYPE = &H3
+'   The following are the inherit flags that go into the AceFlags field
+'   of an Ace header.
+Const OBJECT_INHERIT_ACE = &H1
+Const CONTAINER_INHERIT_ACE = &H2
+Const NO_PROPAGATE_INHERIT_ACE = &H4
+Const INHERIT_ONLY_ACE = &H8
+Const VALID_INHERIT_FLAGS = &HF
+Const SUCCESSFUL_ACCESS_ACE_FLAG = &H40
+Const FAILED_ACCESS_ACE_FLAG = &H80
+Type ACCESS_ALLOWED_ACE
+        Header As ACE_HEADER
+        Mask As Long
+        SidStart As Long
+End Type
+Type ACCESS_DENIED_ACE
+        Header As ACE_HEADER
+        Mask As Long
+        SidStart As Long
+End Type
+Type SYSTEM_AUDIT_ACE
+        Header As ACE_HEADER
+        Mask As Long
+        SidStart As Long
+End Type
+Type SYSTEM_ALARM_ACE
+        Header As ACE_HEADER
+        Mask As Long
+        SidStart As Long
+End Type
+Const AclRevisionInformation = 1
+Const AclSizeInformation = 2
+Type ACL_REVISION_INFORMATION
+        AclRevision As Long
+End Type
+Type ACL_SIZE_INFORMATION
+        AceCount As Long
+        AclBytesInUse As Long
+        AclBytesFree As Long
+End Type
+Const SECURITY_DESCRIPTOR_REVISION = (1)
+Const SECURITY_DESCRIPTOR_REVISION1 = (1)
+Const SECURITY_DESCRIPTOR_MIN_LENGTH = (20)
+Const SE_OWNER_DEFAULTED = &H1
+Const SE_GROUP_DEFAULTED = &H2
+Const SE_DACL_PRESENT = &H4
+Const SE_DACL_DEFAULTED = &H8
+Const SE_SACL_PRESENT = &H10
+Const SE_SACL_DEFAULTED = &H20
+Const SE_SELF_RELATIVE = &H8000
+Type SECURITY_DESCRIPTOR
+        Revision As Byte
+        Sbz1 As Byte
+        Control As Long
+        Owner As Long
+        Group As Long
+        Sacl As ACL
+        Dacl As ACL
+End Type
+Const SE_PRIVILEGE_ENABLED_BY_DEFAULT = &H1
+Const SE_PRIVILEGE_ENABLED = &H2
+Const SE_PRIVILEGE_USED_FOR_ACCESS = &H80000000
+Type PRIVILEGE_SET
+        PrivilegeCount As Long
+        Control As Long
+        Privilege(ANYSIZE_ARRAY) As LUID_AND_ATTRIBUTES
+End Type
+Const SE_CREATE_TOKEN_NAME = "SeCreateTokenPrivilege"
+Const SE_ASSIGNPRIMARYTOKEN_NAME = "SeAssignPrimaryTokenPrivilege"
+Const SE_LOCK_MEMORY_NAME = "SeLockMemoryPrivilege"
+Const SE_INCREASE_QUOTA_NAME = "SeIncreaseQuotaPrivilege"
+Const SE_UNSOLICITED_INPUT_NAME = "SeUnsolicitedInputPrivilege"
+Const SE_MACHINE_ACCOUNT_NAME = "SeMachineAccountPrivilege"
+Const SE_TCB_NAME = "SeTcbPrivilege"
+Const SE_SECURITY_NAME = "SeSecurityPrivilege"
+Const SE_TAKE_OWNERSHIP_NAME = "SeTakeOwnershipPrivilege"
+Const SE_LOAD_DRIVER_NAME = "SeLoadDriverPrivilege"
+Const SE_SYSTEM_PROFILE_NAME = "SeSystemProfilePrivilege"
+Const SE_SYSTEMTIME_NAME = "SeSystemtimePrivilege"
+Const SE_PROF_SINGLE_PROCESS_NAME = "SeProfileSingleProcessPrivilege"
+Const SE_INC_BASE_PRIORITY_NAME = "SeIncreaseBasePriorityPrivilege"
+Const SE_CREATE_PAGEFILE_NAME = "SeCreatePagefilePrivilege"
+Const SE_CREATE_PERMANENT_NAME = "SeCreatePermanentPrivilege"
+Const SE_BACKUP_NAME = "SeBackupPrivilege"
+Const SE_RESTORE_NAME = "SeRestorePrivilege"
+Const SE_SHUTDOWN_NAME = "SeShutdownPrivilege"
+Const SE_DEBUG_NAME = "SeDebugPrivilege"
+Const SE_AUDIT_NAME = "SeAuditPrivilege"
+Const SE_SYSTEM_ENVIRONMENT_NAME = "SeSystemEnvironmentPrivilege"
+Const SE_CHANGE_NOTIFY_NAME = "SeChangeNotifyPrivilege"
+Const SE_REMOTE_SHUTDOWN_NAME = "SeRemoteShutdownPrivilege"
+Const REG_NONE = 0                       ' No value type
+Const REG_SZ = 1                         ' Unicode nul terminated string
+Const REG_EXPAND_SZ = 2                  ' Unicode nul terminated string
+Const REG_BINARY = 3                     ' Free form binary
+Const REG_DWORD = 4                      ' 32-bit number
+Const REG_DWORD_LITTLE_ENDIAN = 4        ' 32-bit number (same as REG_DWORD)
+Const REG_DWORD_BIG_ENDIAN = 5           ' 32-bit number
+Const REG_LINK = 6                       ' Symbolic Link (unicode)
+Const REG_MULTI_SZ = 7                   ' Multiple Unicode strings
+Const REG_RESOURCE_LIST = 8              ' Resource list in the resource map
+Const REG_FULL_RESOURCE_DESCRIPTOR = 9   ' Resource list in the hardware description
+Const REG_RESOURCE_REQUIREMENTS_LIST = 10
+Const REG_CREATED_NEW_KEY = &H1                      ' New Registry Key created
+Const REG_OPENED_EXISTING_KEY = &H2                      ' Existing Key opened
+Const REG_WHOLE_HIVE_VOLATILE = &H1                      ' Restore whole hive volatile
+Const REG_REFRESH_HIVE = &H2                      ' Unwind changes to last flush
+Const REG_NOTIFY_CHANGE_NAME = &H1                      ' Create or delete (child)
+Const REG_NOTIFY_CHANGE_ATTRIBUTES = &H2
+Const REG_NOTIFY_CHANGE_LAST_SET = &H4                      ' Time stamp
+Const REG_NOTIFY_CHANGE_SECURITY = &H8
+Const REG_LEGAL_CHANGE_FILTER = (REG_NOTIFY_CHANGE_NAME Or REG_NOTIFY_CHANGE_ATTRIBUTES Or REG_NOTIFY_CHANGE_LAST_SET Or REG_NOTIFY_CHANGE_SECURITY)
+Const REG_LEGAL_OPTION = (REG_OPTION_RESERVED Or REG_OPTION_NON_VOLATILE Or REG_OPTION_VOLATILE Or REG_OPTION_CREATE_LINK Or REG_OPTION_BACKUP_RESTORE)
+' Reg Create Type Values...
+Const REG_OPTION_RESERVED = 0           ' Parameter is reserved
+Const REG_OPTION_NON_VOLATILE = 0       ' Key is preserved when system is rebooted
+Const REG_OPTION_VOLATILE = 1           ' Key is not preserved when system is rebooted
+Const REG_OPTION_CREATE_LINK = 2        ' Created key is a symbolic link
+Const REG_OPTION_BACKUP_RESTORE = 4     ' open for backup or restore
+' Reg Key Security Options
+' Const READ_CONTROL = &H20000
+Const KEY_QUERY_VALUE = &H1
+Const KEY_SET_VALUE = &H2
+Const KEY_CREATE_SUB_KEY = &H4
+Const KEY_ENUMERATE_SUB_KEYS = &H8
+Const KEY_NOTIFY = &H10
+Const KEY_CREATE_LINK = &H20
+Const KEY_READ = ((STANDARD_RIGHTS_READ Or KEY_QUERY_VALUE Or KEY_ENUMERATE_SUB_KEYS Or KEY_NOTIFY) And (Not SYNCHRONIZE))
+Const KEY_WRITE = ((STANDARD_RIGHTS_WRITE Or KEY_SET_VALUE Or KEY_CREATE_SUB_KEY) And (Not SYNCHRONIZE))
+Const KEY_ALL_ACCESS = ((STANDARD_RIGHTS_ALL Or KEY_QUERY_VALUE Or KEY_SET_VALUE Or KEY_CREATE_SUB_KEY Or KEY_ENUMERATE_SUB_KEYS Or KEY_NOTIFY Or KEY_CREATE_LINK) And (Not SYNCHRONIZE))
+'Const STANDARD_RIGHTS_READ = (READ_CONTROL)
+'Const STANDARD_RIGHTS_WRITE = (READ_CONTROL)
+Const KEY_EXECUTE = ((KEY_READ) And (Not SYNCHRONIZE))
+' end winnt.txt
+' Debug APIs
+Const EXCEPTION_DEBUG_EVENT = 1
+Const CREATE_THREAD_DEBUG_EVENT = 2
+Const CREATE_PROCESS_DEBUG_EVENT = 3
+Const EXIT_THREAD_DEBUG_EVENT = 4
+Const EXIT_PROCESS_DEBUG_EVENT = 5
+Const LOAD_DLL_DEBUG_EVENT = 6
+Const UNLOAD_DLL_DEBUG_EVENT = 7
+Const OUTPUT_DEBUG_STRING_EVENT = 8
+Const RIP_EVENT = 9
+Const EXCEPTION_MAXIMUM_PARAMETERS = 15
+Type EXCEPTION_RECORD
+    ExceptionCode As Long
+    ExceptionFlags As Long
+    pExceptionRecord As Long	' Pointer to an EXCEPTION_RECORD structure
+    ExceptionAddress As Long
+    NumberParameters As Long
+    ExceptionInformation(EXCEPTION_MAXIMUM_PARAMETERS) As Long
+End Type
+Type EXCEPTION_DEBUG_INFO
+        pExceptionRecord As EXCEPTION_RECORD
+        dwFirstChance As Long
+End Type
+Type CREATE_THREAD_DEBUG_INFO
+        hThread As Long
+        lpThreadLocalBase As Long
+        lpStartAddress As Long
+End Type
+Type CREATE_PROCESS_DEBUG_INFO
+        hFile As Long
+        hProcess As Long
+        hThread As Long
+        lpBaseOfImage As Long
+        dwDebugInfoFileOffset As Long
+        nDebugInfoSize As Long
+        lpThreadLocalBase As Long
+        lpStartAddress As Long
+        lpImageName As Long
+        fUnicode As Integer
+End Type
+Type EXIT_THREAD_DEBUG_INFO
+        dwExitCode As Long
+End Type
+Type EXIT_PROCESS_DEBUG_INFO
+        dwExitCode As Long
+End Type
+Type LOAD_DLL_DEBUG_INFO
+        hFile As Long
+        lpBaseOfDll As Long
+        dwDebugInfoFileOffset As Long
+        nDebugInfoSize As Long
+        lpImageName As Long
+        fUnicode As Integer
+End Type
+Type UNLOAD_DLL_DEBUG_INFO
+        lpBaseOfDll As Long
+End Type
+Type OUTPUT_DEBUG_STRING_INFO
+        lpDebugStringData As String
+        fUnicode As Integer
+        nDebugStringLength As Integer
+End Type
+Type RIP_INFO
+        dwError As Long
+        dwType As Long
+End Type
+' GetDriveType return values
+Const DRIVE_REMOVABLE = 2
+Const DRIVE_FIXED = 3
+Const DRIVE_REMOTE = 4
+Const DRIVE_CDROM = 5
+Const DRIVE_RAMDISK = 6
+Const FILE_TYPE_UNKNOWN = &H0
+Const FILE_TYPE_DISK = &H1
+Const FILE_TYPE_CHAR = &H2
+Const FILE_TYPE_PIPE = &H3
+Const FILE_TYPE_REMOTE = &H8000
+Const STD_INPUT_HANDLE = -10&
+Const STD_OUTPUT_HANDLE = -11&
+Const STD_ERROR_HANDLE = -12&
+Const NOPARITY = 0
+Const ODDPARITY = 1
+Const EVENPARITY = 2
+Const MARKPARITY = 3
+Const SPACEPARITY = 4
+Const ONESTOPBIT = 0
+Const ONE5STOPBITS = 1
+Const TWOSTOPBITS = 2
+Const IGNORE = 0 '  Ignore signal
+Const INFINITE = &HFFFF      '  Infinite timeout
+' Comm Baud Rate indices
+Const CBR_110 = 110
+Const CBR_300 = 300
+Const CBR_600 = 600
+Const CBR_1200 = 1200
+Const CBR_2400 = 2400
+Const CBR_4800 = 4800
+Const CBR_9600 = 9600
+Const CBR_14400 = 14400
+Const CBR_19200 = 19200
+Const CBR_38400 = 38400
+Const CBR_56000 = 56000
+Const CBR_57600 = 57600
+Const CBR_115200 = 115200
+Const CBR_128000 = 128000
+Const CBR_256000 = 256000
+' Error Flags
+Const CE_RXOVER = &H1                '  Receive Queue overflow
+Const CE_OVERRUN = &H2               '  Receive Overrun Error
+Const CE_RXPARITY = &H4              '  Receive Parity Error
+Const CE_FRAME = &H8                 '  Receive Framing error
+Const CE_BREAK = &H10                '  Break Detected
+Const CE_TXFULL = &H100              '  TX Queue is full
+Const CE_PTO = &H200                 '  LPTx Timeout
+Const CE_IOE = &H400                 '  LPTx I/O Error
+Const CE_DNS = &H800                 '  LPTx Device not selected
+Const CE_OOP = &H1000                '  LPTx Out-Of-Paper
+Const CE_MODE = &H8000               '  Requested mode unsupported
+Const IE_BADID = (-1)                '  Invalid or unsupported id
+Const IE_OPEN = (-2)                 '  Device Already Open
+Const IE_NOPEN = (-3)                '  Device Not Open
+Const IE_MEMORY = (-4)               '  Unable to allocate queues
+Const IE_DEFAULT = (-5)              '  Error in default parameters
+Const IE_HARDWARE = (-10)            '  Hardware Not Present
+Const IE_BYTESIZE = (-11)            '  Illegal Byte Size
+Const IE_BAUDRATE = (-12)            '  Unsupported BaudRate
+' Events
+Const EV_RXCHAR = &H1                '  Any Character received
+Const EV_RXFLAG = &H2                '  Received certain character
+Const EV_TXEMPTY = &H4               '  Transmitt Queue Empty
+Const EV_CTS = &H8                   '  CTS changed state
+Const EV_DSR = &H10                  '  DSR changed state
+Const EV_RLSD = &H20                 '  RLSD changed state
+Const EV_BREAK = &H40                '  BREAK received
+Const EV_ERR = &H80                  '  Line status error occurred
+Const EV_RING = &H100                '  Ring signal detected
+Const EV_PERR = &H200                '  Printer error occured
+Const EV_RX80FULL = &H400            '  Receive buffer is 80 percent full
+Const EV_EVENT1 = &H800              '  Provider specific event 1
+Const EV_EVENT2 = &H1000             '  Provider specific event 2
+' Escape Functions
+Const SETXOFF = 1  '  Simulate XOFF received
+Const SETXON = 2 '  Simulate XON received
+Const SETRTS = 3 '  Set RTS high
+Const CLRRTS = 4 '  Set RTS low
+Const SETDTR = 5 '  Set DTR high
+Const CLRDTR = 6 '  Set DTR low
+Const RESETDEV = 7       '  Reset device if possible
+Const SETBREAK = 8  'Set the device break line
+Const CLRBREAK = 9 ' Clear the device break line
+'  PURGE function flags.
+Const PURGE_TXABORT = &H1     '  Kill the pending/current writes to the comm port.
+Const PURGE_RXABORT = &H2     '  Kill the pending/current reads to the comm port.
+Const PURGE_TXCLEAR = &H4     '  Kill the transmit queue if there.
+Const PURGE_RXCLEAR = &H8     '  Kill the typeahead buffer if there.
+Const LPTx = &H80        '  Set if ID is for LPT device
+'  Modem Status Flags
+Const MS_CTS_ON = &H10&
+Const MS_DSR_ON = &H20&
+Const MS_RING_ON = &H40&
+Const MS_RLSD_ON = &H80&
+' WaitSoundState() Constants
+Const S_QUEUEEMPTY = 0
+Const S_THRESHOLD = 1
+Const S_ALLTHRESHOLD = 2
+' Accent Modes
+Const S_NORMAL = 0
+Const S_LEGATO = 1
+Const S_STACCATO = 2
+' SetSoundNoise() Sources
+Const S_PERIOD512 = 0    '  Freq = N/512 high pitch, less coarse hiss
+Const S_PERIOD1024 = 1   '  Freq = N/1024
+Const S_PERIOD2048 = 2   '  Freq = N/2048 low pitch, more coarse hiss
+Const S_PERIODVOICE = 3  '  Source is frequency from voice channel (3)
+Const S_WHITE512 = 4     '  Freq = N/512 high pitch, less coarse hiss
+Const S_WHITE1024 = 5    '  Freq = N/1024
+Const S_WHITE2048 = 6    '  Freq = N/2048 low pitch, more coarse hiss
+Const S_WHITEVOICE = 7   '  Source is frequency from voice channel (3)
+Const S_SERDVNA = (-1)   '  Device not available
+Const S_SEROFM = (-2)    '  Out of memory
+Const S_SERMACT = (-3)   '  Music active
+Const S_SERQFUL = (-4)   '  Queue full
+Const S_SERBDNT = (-5)   '  Invalid note
+Const S_SERDLN = (-6)    '  Invalid note length
+Const S_SERDCC = (-7)    '  Invalid note count
+Const S_SERDTP = (-8)    '  Invalid tempo
+Const S_SERDVL = (-9)    '  Invalid volume
+Const S_SERDMD = (-10)   '  Invalid mode
+Const S_SERDSH = (-11)   '  Invalid shape
+Const S_SERDPT = (-12)   '  Invalid pitch
+Const S_SERDFQ = (-13)   '  Invalid frequency
+Const S_SERDDR = (-14)   '  Invalid duration
+Const S_SERDSR = (-15)   '  Invalid source
+Const S_SERDST = (-16)   '  Invalid state
+Const NMPWAIT_WAIT_FOREVER = &HFFFF
+Const NMPWAIT_NOWAIT = &H1
+Const NMPWAIT_USE_DEFAULT_WAIT = &H0
+Const FS_CASE_IS_PRESERVED = FILE_CASE_PRESERVED_NAMES
+Const FS_CASE_SENSITIVE = FILE_CASE_SENSITIVE_SEARCH
+Const FS_UNICODE_STORED_ON_DISK = FILE_UNICODE_ON_DISK
+Const FS_PERSISTENT_ACLS = FILE_PERSISTENT_ACLS
+Const SECTION_QUERY = &H1
+Const SECTION_MAP_WRITE = &H2
+Const SECTION_MAP_READ = &H4
+Const SECTION_MAP_EXECUTE = &H8
+Const SECTION_EXTEND_SIZE = &H10
+Const SECTION_ALL_ACCESS = STANDARD_RIGHTS_REQUIRED Or SECTION_QUERY Or SECTION_MAP_WRITE Or SECTION_MAP_READ Or SECTION_MAP_EXECUTE Or SECTION_EXTEND_SIZE
+Const FILE_MAP_COPY = SECTION_QUERY
+Const FILE_MAP_WRITE = SECTION_MAP_WRITE
+Const FILE_MAP_READ = SECTION_MAP_READ
+Const FILE_MAP_ALL_ACCESS = SECTION_ALL_ACCESS
+' OpenFile() Flags
+Const OF_READ = &H0
+Const OF_WRITE = &H1
+Const OF_READWRITE = &H2
+Const OF_SHARE_COMPAT = &H0
+Const OF_SHARE_EXCLUSIVE = &H10
+Const OF_SHARE_DENY_WRITE = &H20
+Const OF_SHARE_DENY_READ = &H30
+Const OF_SHARE_DENY_NONE = &H40
+Const OF_PARSE = &H100
+Const OF_DELETE = &H200
+Const OF_VERIFY = &H400
+Const OF_CANCEL = &H800
+Const OF_CREATE = &H1000
+Const OF_PROMPT = &H2000
+Const OF_EXIST = &H4000
+Const OF_REOPEN = &H8000
+Const OFS_MAXPATHNAME = 128
+' OpenFile() Structure
+Type OFSTRUCT
+        cBytes As Byte
+        fFixedDisk As Byte
+        nErrCode As Integer
+        Reserved1 As Integer
+        Reserved2 As Integer
+        szPathName(OFS_MAXPATHNAME) As Byte
+End Type
+Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" (Destination As Any, Source As Any, ByVal Length As Long)
+Const PROCESSOR_INTEL_386 = 386
+Const PROCESSOR_INTEL_486 = 486
+Const PROCESSOR_INTEL_PENTIUM = 586
+Const PROCESSOR_MIPS_R4000 = 4000
+Const PROCESSOR_ALPHA_21064 = 21064
+Const PROCESSOR_ARCHITECTURE_INTEL = 0
+Const PROCESSOR_ARCHITECTURE_MIPS = 1
+Const PROCESSOR_ARCHITECTURE_ALPHA = 2
+Const PROCESSOR_ARCHITECTURE_PPC = 3
+Const PROCESSOR_ARCHITECTURE_UNKNOWN = &hFFFF
+Declare Function GetCurrentTime Lib "kernel32" Alias "GetTickCount" () As Long
+' Flags for DrawFrameControl
+Const DFC_CAPTION = 1
+Const DFC_MENU = 2
+Const DFC_SCROLL = 3
+Const DFC_BUTTON = 4
+Const DFCS_CAPTIONCLOSE = &H0
+Const DFCS_CAPTIONMIN = &H1
+Const DFCS_CAPTIONMAX = &H2
+Const DFCS_CAPTIONRESTORE = &H3
+Const DFCS_CAPTIONHELP = &H4
+Const DFCS_MENUARROW = &H0
+Const DFCS_MENUCHECK = &H1
+Const DFCS_MENUBULLET = &H2
+Const DFCS_MENUARROWRIGHT = &H4
+Const DFCS_SCROLLUP = &H0
+Const DFCS_SCROLLDOWN = &H1
+Const DFCS_SCROLLLEFT = &H2
+Const DFCS_SCROLLRIGHT = &H3
+Const DFCS_SCROLLCOMBOBOX = &H5
+Const DFCS_SCROLLSIZEGRIP = &H8
+Const DFCS_SCROLLSIZEGRIPRIGHT = &H10
+Const DFCS_BUTTONCHECK = &H0
+Const DFCS_BUTTONRADIOIMAGE = &H1
+Const DFCS_BUTTONRADIOMASK = &H2
+Const DFCS_BUTTONRADIO = &H4
+Const DFCS_BUTTON3STATE = &H8
+Const DFCS_BUTTONPUSH = &H10
+Const DFCS_INACTIVE = &H100
+Const DFCS_PUSHED = &H200
+Const DFCS_CHECKED = &H400
+Const DFCS_ADJUSTRECT = &H2000
+Const DFCS_FLAT = &H4000
+Const DFCS_MONO = &H8000
+Declare Function InterlockedIncrement Lib "kernel32" Alias "InterlockedIncrement" (lpAddend As Long) As Long
+Declare Function InterlockedDecrement Lib "kernel32" Alias "InterlockedDecrement" (lpAddend As Long) As Long
+Declare Function InterlockedExchange Lib "kernel32" Alias "InterlockedExchange" (Target As Long, ByVal Value As Long) As Long
+' Loader Routines
+Declare Function GetModuleFileName Lib "kernel32" Alias "GetModuleFileNameA" (ByVal hModule As Long, ByVal lpFileName As String, ByVal nSize As Long) As Long
+Declare Function GetModuleHandle Lib "kernel32" Alias "GetModuleHandleA" (ByVal lpModuleName As String) As Long
+Declare Function CreateProcess Lib "kernel32" Alias "CreateProcessA" (ByVal lpApplicationName As String, ByVal lpCommandLine As String, lpProcessAttributes As SECURITY_ATTRIBUTES, lpThreadAttributes As SECURITY_ATTRIBUTES, ByVal bInheritHandles As Long, ByVal dwCreationFlags As Long, lpEnvironment As Any, ByVal lpCurrentDriectory As String, lpStartupInfo As STARTUPINFO, lpProcessInformation As PROCESS_INFORMATION) As Long
+Declare Function SetProcessShutdownParameters Lib "kernel32" Alias "SetProcessShutdownParameters" (ByVal dwLevel As Long, ByVal dwFlags As Long) As Long
+Declare Function GetProcessShutdownParameters Lib "kernel32" Alias "GetProcessShutdownParameters" (lpdwLevel As Long, lpdwFlags As Long) As Long
+Declare Sub FatalAppExit Lib "kernel32" Alias "FatalAppExitA" (ByVal uAction As Long, ByVal lpMessageText As String)
+Declare Sub GetStartupInfo Lib "kernel32" Alias "GetStartupInfoA" (lpStartupInfo As STARTUPINFO)
+Declare Function GetCommandLine Lib "kernel32" Alias "GetCommandLineA" () As String
+Declare Function GetEnvironmentVariable Lib "kernel32" Alias "GetEnvironmentVariableA" (ByVal lpName As String, ByVal lpBuffer As String, ByVal nSize As Long) As Long
+Declare Function SetEnvironmentVariable Lib "kernel32" Alias "SetEnvironmentVariableA" (ByVal lpName As String, ByVal lpValue As String) As Long
+Declare Function ExpandEnvironmentStrings Lib "kernel32" Alias "ExpandEnvironmentStringsA" (ByVal lpSrc As String, ByVal lpDst As String, ByVal nSize As Long) As Long
+Declare Function LoadLibrary Lib "kernel32" Alias "LoadLibraryA" (ByVal lpLibFileName As String) As Long
+Declare Function LoadLibraryEx Lib "kernel32" Alias "LoadLibraryExA" (ByVal lpLibFileName As String, ByVal hFile As Long, ByVal dwFlags As Long) As Long
+Const DONT_RESOLVE_DLL_REFERENCES = &H1
+Declare Function LoadModule Lib "kernel32" Alias "LoadModule" (ByVal lpModuleName As String, lpParameterBlock As Any) As Long
+Declare Function FreeLibrary Lib "kernel32" Alias "FreeLibrary" (ByVal hLibModule As Long) As Long
+Declare Function WinExec Lib "kernel32" Alias "WinExec" (ByVal lpCmdLine As String, ByVal nCmdShow As Long) As Long
+Declare Sub DebugBreak Lib "kernel32" Alias "DebugBreak" ()
+Declare Function ContinueDebugEvent Lib "kernel32" Alias "ContinueDebugEvent" (ByVal dwProcessId As Long, ByVal dwThreadId As Long, ByVal dwContinueStatus As Long) As Long
+Declare Function DebugActiveProcess Lib "kernel32" Alias "DebugActiveProcess" (ByVal dwProcessId As Long) As Long
+Type CRITICAL_SECTION
+	dummy As Long
+End Type
+Declare Sub InitializeCriticalSection Lib "kernel32" Alias "InitializeCriticalSection" (lpCriticalSection As CRITICAL_SECTION)
+Declare Sub EnterCriticalSection Lib "kernel32" Alias "EnterCriticalSection" (lpCriticalSection As CRITICAL_SECTION)
+Declare Sub LeaveCriticalSection Lib "kernel32" Alias "LeaveCriticalSection" (lpCriticalSection As CRITICAL_SECTION)
+Declare Sub DeleteCriticalSection Lib "kernel32" Alias "DeleteCriticalSection" (lpCriticalSection As CRITICAL_SECTION)
+Declare Function SetEvent Lib "kernel32" Alias "SetEvent" (ByVal hEvent As Long) As Long
+Declare Function ResetEvent Lib "kernel32" Alias "ResetEvent" (ByVal hEvent As Long) As Long
+Declare Function PulseEvent Lib "kernel32" Alias "PulseEvent" (ByVal hEvent As Long) As Long
+Declare Function ReleaseSemaphore Lib "kernel32" Alias "ReleaseSemaphore" (ByVal hSemaphore As Long, ByVal lReleaseCount As Long, lpPreviousCount As Long) As Long
+Declare Function ReleaseMutex Lib "kernel32" Alias "ReleaseMutex" (ByVal hMutex As Long) As Long
+Declare Function WaitForSingleObject Lib "kernel32" Alias "WaitForSingleObject" (ByVal hHandle As Long, ByVal dwMilliseconds As Long) As Long
+Declare Function WaitForMultipleObjects Lib "kernel32" Alias "WaitForMultipleObjects" (ByVal nCount As Long, lpHandles As Long, ByVal bWaitAll As Long, ByVal dwMilliseconds As Long) As Long
+Declare Sub Sleep Lib "kernel32" Alias "Sleep" (ByVal dwMilliseconds As Long)
+Declare Sub OutputDebugString Lib "kernel32" Alias "OutputDebugStringA" (ByVal lpOutputString As String)
+Declare Function GetVersion Lib "kernel32" Alias "GetVersion" () As Long
+Declare Function OpenFile Lib "kernel32" Alias "OpenFile" (ByVal lpFileName As String, lpReOpenBuff As OFSTRUCT, ByVal wStyle As Long) As Long
+' GetTempFileName() Flags
+'
+Const TF_FORCEDRIVE = &H80
+Declare Function GetTempFileName Lib "kernel32" Alias "GetTempFileNameA" (ByVal lpszPath As String, ByVal lpPrefixString As String, ByVal wUnique As Long, ByVal lpTempFileName As String) As Long
+Declare Function SetHandleCount Lib "kernel32" Alias "SetHandleCount" (ByVal wNumber As Long) As Long
+Declare Function GetLogicalDrives Lib "kernel32" Alias "GetLogicalDrives" () As Long
+Declare Function LockFile Lib "kernel32" Alias "LockFile" (ByVal hFile As Long, ByVal dwFileOffsetLow As Long, ByVal dwFileOffsetHigh As Long, ByVal nNumberOfBytesToLockLow As Long, ByVal nNumberOfBytesToLockHigh As Long) As Long
+Declare Function UnlockFile Lib "kernel32" Alias "UnlockFile" (ByVal hFile As Long, ByVal dwFileOffsetLow As Long, ByVal dwFileOffsetHigh As Long, ByVal nNumberOfBytesToUnlockLow As Long, ByVal nNumberOfBytesToUnlockHigh As Long) As Long
+Declare Function LockFileEx Lib "kernel32" Alias "LockFileEx" (ByVal hFile As Long, ByVal dwFlags As Long, ByVal dwReserved As Long, ByVal nNumberOfBytesToLockLow As Long, ByVal nNumberOfBytesToLockHigh As Long, lpOverlapped As OVERLAPPED) As Long
+Const LOCKFILE_FAIL_IMMEDIATELY = &H1
+Const LOCKFILE_EXCLUSIVE_LOCK = &H2
+Declare Function UnlockFileEx Lib "kernel32" Alias "UnlockFileEx" (ByVal hFile As Long, ByVal dwReserved As Long, ByVal nNumberOfBytesToUnlockLow As Long, ByVal nNumberOfBytesToUnlockHigh As Long, lpOverlapped As OVERLAPPED) As Long
+Type BY_HANDLE_FILE_INFORMATION
+        dwFileAttributes As Long
+        ftCreationTime As FILETIME
+        ftLastAccessTime As FILETIME
+        ftLastWriteTime As FILETIME
+        dwVolumeSerialNumber As Long
+        nFileSizeHigh As Long
+        nFileSizeLow As Long
+        nNumberOfLinks As Long
+        nFileIndexHigh As Long
+        nFileIndexLow As Long
+End Type
+Declare Function GetFileInformationByHandle Lib "kernel32" Alias "GetFileInformationByHandle" (ByVal hFile As Long, lpFileInformation As BY_HANDLE_FILE_INFORMATION) As Long
+Declare Function GetFileType Lib "kernel32" Alias "GetFileType" (ByVal hFile As Long) As Long
+Declare Function GetFileSize Lib "kernel32" Alias "GetFileSize" (ByVal hFile As Long, lpFileSizeHigh As Long) As Long
+Declare Function GetStdHandle Lib "kernel32" Alias "GetStdHandle" (ByVal nStdHandle As Long) As Long
+Declare Function SetStdHandle Lib "kernel32" Alias "SetStdHandle" (ByVal nStdHandle As Long, ByVal nHandle As Long) As Long
+Declare Function WriteFile Lib "kernel32" Alias "WriteFile" (ByVal hFile As Long, lpBuffer As Any, ByVal nNumberOfBytesToWrite As Long, lpNumberOfBytesWritten As Long, lpOverlapped As OVERLAPPED) As Long
+Declare Function ReadFile Lib "kernel32" Alias "ReadFile" (ByVal hFile As Long, lpBuffer As Any, ByVal nNumberOfBytesToRead As Long, lpNumberOfBytesRead As Long, lpOverlapped As OVERLAPPED) As Long
+Declare Function FlushFileBuffers Lib "kernel32" Alias "FlushFileBuffers" (ByVal hFile As Long) As Long
+Declare Function DeviceIoControl Lib "kernel32" Alias "DeviceIoControl" (ByVal hDevice As Long, ByVal dwIoControlCode As Long, lpInBuffer As Any, ByVal nInBufferSize As Long, lpOutBuffer As Any, ByVal nOutBufferSize As Long, lpBytesReturned As Long, lpOverlapped As OVERLAPPED) As Long
+Declare Function SetEndOfFile Lib "kernel32" Alias "SetEndOfFile" (ByVal hFile As Long) As Long
+Declare Function SetFilePointer Lib "kernel32" Alias "SetFilePointer" (ByVal hFile As Long, ByVal lDistanceToMove As Long, lpDistanceToMoveHigh As Long, ByVal dwMoveMethod As Long) As Long
+Declare Function FindClose Lib "kernel32" Alias "FindClose" (ByVal hFindFile As Long) As Long
+Declare Function GetFileTime Lib "kernel32" Alias "GetFileTime" (ByVal hFile As Long, lpCreationTime As FILETIME, lpLastAccessTime As FILETIME, lpLastWriteTime As FILETIME) As Long
+Declare Function SetFileTime Lib "kernel32" Alias "SetFileTime" (ByVal hFile As Long, lpCreationTime As FILETIME, lpLastAccessTime As FILETIME, lpLastWriteTime As FILETIME) As Long
+Declare Function CloseHandle Lib "kernel32" Alias "CloseHandle" (ByVal hObject As Long) As Long
+Declare Function DuplicateHandle Lib "kernel32" Alias "DuplicateHandle" (ByVal hSourceProcessHandle As Long, ByVal hSourceHandle As Long, ByVal hTargetProcessHandle As Long, lpTargetHandle As Long, ByVal dwDesiredAccess As Long, ByVal bInheritHandle As Long, ByVal dwOptions As Long) As Long
+Declare Function GetDriveType Lib "kernel32" Alias "GetDriveTypeA" (ByVal nDrive As String) As Long
+Declare Function GlobalAlloc Lib "kernel32" Alias "GlobalAlloc" (ByVal wFlags As Long, ByVal dwBytes As Long) As Long
+Declare Function GlobalFree Lib "kernel32" Alias "GlobalFree" (ByVal hMem As Long) As Long
+Declare Function GlobalHandle Lib "kernel32" Alias "GlobalHandle" (wMem As Any) As Long
+Declare Function GlobalLock Lib "kernel32" Alias "GlobalLock" (ByVal hMem As Long) As Long
+Declare Function GlobalReAlloc Lib "kernel32" Alias "GlobalReAlloc" (ByVal hMem As Long, ByVal dwBytes As Long, ByVal wFlags As Long) As Long
+Declare Function GlobalSize Lib "kernel32" Alias "GlobalSize" (ByVal hMem As Long) As Long
+Declare Function GlobalUnlock Lib "kernel32" Alias "GlobalUnlock" (ByVal hMem As Long) As Long
+Declare Function GlobalFlags Lib "kernel32" Alias "GlobalFlags" (ByVal hMem As Long) As Long
+Declare Sub GlobalMemoryStatus Lib "kernel32" Alias "GlobalMemoryStatus" (lpBuffer As MEMORYSTATUS)
+Const LNOTIFY_OUTOFMEM = 0
+Const LNOTIFY_MOVE = 1
+Const LNOTIFY_DISCARD = 2
+Declare Function LocalAlloc Lib "kernel32" Alias "LocalAlloc" (ByVal wFlags As Long, ByVal wBytes As Long) As Long
+Declare Function LocalFree Lib "kernel32" Alias "LocalFree" (ByVal hMem As Long) As Long
+Declare Function LocalHandle Lib "kernel32" Alias "LocalHandle" (wMem As Any) As Long
+Declare Function LocalLock Lib "kernel32" Alias "LocalLock" (ByVal hMem As Long) As Long
+Declare Function LocalReAlloc Lib "kernel32" Alias "LocalReAlloc" (ByVal hMem As Long, ByVal wBytes As Long, ByVal wFlags As Long) As Long
+Declare Function LocalSize Lib "kernel32" Alias "LocalSize" (ByVal hMem As Long) As Long
+Declare Function LocalUnlock Lib "kernel32" Alias "LocalUnlock" (ByVal hMem As Long) As Long
+Declare Function LocalFlags Lib "kernel32" Alias "LocalFlags" (ByVal hMem As Long) As Long
+Type MEMORY_BASIC_INFORMATION
+     BaseAddress as Long
+     AllocationBase as Long
+     AllocationProtect As Long
+     RegionSize As Long
+     State As Long
+     Protect As Long
+     lType As Long
+End Type
+Declare Function FlushInstructionCache Lib "kernel32" Alias "FlushInstructionCache" (ByVal hProcess As Long, lpBaseAddress As Any, ByVal dwSize As Long) As Long
+Declare Function VirtualAlloc Lib "kernel32" Alias "VirtualAlloc" (lpAddress As Any, ByVal dwSize As Long, ByVal flAllocationType As Long, ByVal flProtect As Long) As Long
+Declare Function VirtualFree Lib "kernel32" Alias "VirtualFree" (lpAddress As Any, ByVal dwSize As Long, ByVal dwFreeType As Long) As Long
+Declare Function VirtualProtect Lib "kernel32" Alias "VirtualProtect" (lpAddress As Any, ByVal dwSize As Long, ByVal flNewProtect As Long, lpflOldProtect As Long) As Long
+Declare Function VirtualQuery Lib "kernel32" Alias "VirtualQuery" (lpAddress As Any, lpBuffer As MEMORY_BASIC_INFORMATION, ByVal dwLength As Long) As Long
+Declare Function VirtualProtectEx Lib "kernel32" Alias "VirtualProtectEx" (ByVal hProcess As Long, lpAddress As Any, ByVal dwSize As Long, ByVal flNewProtect As Long, lpflOldProtect As Long) As Long
+Declare Function VirtualQueryEx Lib "kernel32" Alias "VirtualQueryEx" (ByVal hProcess As Long, lpAddress As Any, lpBuffer As MEMORY_BASIC_INFORMATION, ByVal dwLength As Long) As Long
+Declare Function HeapCreate Lib "kernel32" Alias "HeapCreate" (ByVal flOptions As Long, ByVal dwInitialSize As Long, ByVal dwMaximumSize As Long) As Long
+Declare Function HeapDestroy Lib "kernel32" Alias "HeapDestroy" (ByVal hHeap As Long) As Long
+Declare Function HeapAlloc Lib "kernel32" Alias "HeapAlloc" (ByVal hHeap As Long, ByVal dwFlags As Long, ByVal dwBytes As Long) As Long
+Declare Function HeapReAlloc Lib "kernel32" Alias "HeapReAlloc" (ByVal hHeap As Long, ByVal dwFlags As Long, lpMem As Any, ByVal dwBytes As Long) As Long
+Declare Function HeapFree Lib "kernel32" Alias "HeapFree" (ByVal hHeap As Long, ByVal dwFlags As Long, lpMem As Any) As Long
+Declare Function HeapSize Lib "kernel32" Alias "HeapSize" (ByVal hHeap As Long, ByVal dwFlags As Long, lpMem As Any) As Long
+Declare Function GetProcessHeap Lib "kernel32" Alias "GetProcessHeap" () As Long
+Declare Function GetProcessTimes Lib "kernel32" Alias "GetProcessTimes" (ByVal hProcess As Long, lpCreationTime As FILETIME, lpExitTime As FILETIME, lpKernelTime As FILETIME, lpUserTime As FILETIME) As Long
+Declare Function OpenProcess Lib "kernel32" Alias "OpenProcess" (ByVal dwDesiredAccess As Long, ByVal bInheritHandle As Long, ByVal dwProcessId As Long) As Long
+Declare Function GetCurrentProcess Lib "kernel32" Alias "GetCurrentProcess" () As Long
+Declare Function GetCurrentProcessId Lib "kernel32" Alias "GetCurrentProcessId" () As Long
+Declare Sub ExitProcess Lib "kernel32" Alias "ExitProcess" (ByVal uExitCode As Long)
+Declare Function TerminateProcess Lib "kernel32" Alias "TerminateProcess" (ByVal hProcess As Long, ByVal uExitCode As Long) As Long
+Declare Function GetExitCodeProcess Lib "kernel32" Alias "GetExitCodeProcess" (ByVal hProcess As Long, lpExitCode As Long) As Long
+Declare Function GetLastError Lib "kernel32" Alias "GetLastError" () As Long
+Declare Sub SetLastError Lib "kernel32" Alias "SetLastError" (ByVal dwErrCode As Long)
+Const SLE_ERROR = &H1
+Const SLE_MINORERROR = &H2
+Const SLE_WARNING = &H3
+Declare Sub SetLastErrorEx Lib "user32" Alias "SetLastErrorEx" (ByVal dwErrCode As Long, ByVal dwType As Long)
+Declare Function GetOverlappedResult Lib "kernel32" Alias "GetOverlappedResult" (ByVal hFile As Long, lpOverlapped As OVERLAPPED, lpNumberOfBytesTransferred As Long, ByVal bWait As Long) As Long
+Const SEM_FAILCRITICALERRORS = &H1
+Const SEM_NOGPFAULTERRORBOX = &H2
+Const SEM_NOOPENFILEERRORBOX = &H8000
+Declare Sub SetDebugErrorLevel Lib "user32" Alias "SetDebugErrorLevel" (ByVal dwLevel As Long)
+Declare Function SetErrorMode Lib "kernel32" Alias "SetErrorMode" (ByVal wMode As Long) As Long
+Declare Function ReadProcessMemory Lib "kernel32" Alias "ReadProcessMemory" (ByVal hProcess As Long, lpBaseAddress As Any, lpBuffer As Any, ByVal nSize As Long, lpNumberOfBytesWritten As Long) As Long
+Declare Function WriteProcessMemory Lib "kernel32" Alias "WriteProcessMemory" (ByVal hProcess As Long, lpBaseAddress As Any, lpBuffer As Any, ByVal nSize As Long, lpNumberOfBytesWritten As Long) As Long
+Declare Function GetThreadContext Lib "kernel32" Alias "GetThreadContext" (ByVal hThread As Long, lpContext As CONTEXT) As Long
+Declare Function SetThreadContext Lib "kernel32" Alias "SetThreadContext" (ByVal hThread As Long, lpContext As CONTEXT) As Long
+Declare Function SuspendThread Lib "kernel32" Alias "SuspendThread" (ByVal hThread As Long) As Long
+Declare Function ResumeThread Lib "kernel32" Alias "ResumeThread" (ByVal hThread As Long) As Long
+Declare Function FindResource Lib "kernel32" Alias "FindResourceA" (ByVal hInstance As Long, ByVal lpName As String, ByVal lpType As String) As Long
+Declare Function FindResourceEx Lib "kernel32" Alias "FindResourceExA" (ByVal hModule As Long, ByVal lpType As String, ByVal lpName As String, ByVal wLanguage As Long) As Long
+Declare Function BeginUpdateResource Lib "kernel32" Alias "BeginUpdateResourceA" (ByVal pFileName As String, ByVal bDeleteExistingResources As Long) As Long
+Declare Function UpdateResource Lib "kernel32" Alias "UpdateResourceA" (ByVal hUpdate As Long, ByVal lpType As String, ByVal lpName As String, ByVal wLanguage As Long, lpData As Any, ByVal cbData As Long) As Long
+Declare Function EndUpdateResource Lib "kernel32" Alias "EndUpdateResourceA" (ByVal hUpdate As Long, ByVal fDiscard As Long) As Long
+Declare Function LoadResource Lib "kernel32" Alias "LoadResource" (ByVal hInstance As Long, ByVal hResInfo As Long) As Long
+Declare Function LockResource Lib "kernel32" Alias "LockResource" (ByVal hResData As Long) As Long
+Declare Function SizeofResource Lib "kernel32" Alias "SizeofResource" (ByVal hInstance As Long, ByVal hResInfo As Long) As Long
+' Predefined Resource Types
+Const RT_CURSOR = 1&
+Const RT_BITMAP = 2&
+Const RT_ICON = 3&
+Const RT_MENU = 4&
+Const RT_DIALOG = 5&
+Const RT_STRING = 6&
+Const RT_FONTDIR = 7&
+Const RT_FONT = 8&
+Const RT_ACCELERATOR = 9&
+Const RT_RCDATA = 10&
+Declare Function InitAtomTable Lib "kernel32" Alias "InitAtomTable" (ByVal nSize As Long) As Long
+Declare Function GlobalAddAtom Lib "kernel32" Alias "GlobalAddAtomA" (ByVal lpString As String) As Integer
+Declare Function GlobalDeleteAtom Lib "kernel32" Alias "GlobalDeleteAtom" (ByVal nAtom As Integer) As Integer
+Declare Function GlobalFindAtom Lib "kernel32" Alias "GlobalFindAtomA" (ByVal lpString As String) As Integer
+Declare Function GlobalGetAtomName Lib "kernel32" Alias "GlobalGetAtomNameA" (ByVal nAtom As Integer, ByVal lpBuffer As String, ByVal nSize As Long) As Long
+Declare Function GetProfileInt Lib "kernel32" Alias "GetProfileIntA" (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal nDefault As Long) As Long
+Declare Function GetProfileString Lib "kernel32" Alias "GetProfileStringA" (ByVal lpAppName As String, ByVal lpKeyName As String, ByVal lpDefault As String, ByVal lpReturnedString As String, ByVal nSize As Long) As Long
+Declare Function WriteProfileString Lib "kernel32" Alias "WriteProfileStringA" (ByVal lpszSection As String, ByVal lpszKeyName As String, ByVal lpszString As String) As Long
+Declare Function GetProfileSection Lib "kernel32" Alias "GetProfileSectionA" (ByVal lpAppName As String, ByVal lpReturnedString As String, ByVal nSize As Long) As Long
+Declare Function WriteProfileSection Lib "kernel32" Alias "WriteProfileSectionA" (ByVal lpAppName As String, ByVal lpString As String) As Long
+Declare Function GetPrivateProfileInt Lib "kernel32" Alias "GetPrivateProfileIntA" (ByVal lpApplicationName As String, ByVal lpKeyName As String, ByVal nDefault As Long, ByVal lpFileName As String) As Long
+Declare Function GetPrivateProfileString Lib "kernel32" Alias "GetPrivateProfileStringA" (ByVal lpApplicationName As String, ByVal lpKeyName As Any, ByVal lpDefault As String, ByVal lpReturnedString As String, ByVal nSize As Long, ByVal lpFileName As String) As Long
+Declare Function WritePrivateProfileString Lib "kernel32" Alias "WritePrivateProfileStringA" (ByVal lpApplicationName As String, ByVal lpKeyName As Any, ByVal lpString As Any, ByVal lpFileName As String) As Long
+Declare Function GetPrivateProfileSection Lib "kernel32" Alias "GetPrivateProfileSectionA" (ByVal lpAppName As String, ByVal lpReturnedString As String, ByVal nSize As Long, ByVal lpFileName As String) As Long
+Declare Function WritePrivateProfileSection Lib "kernel32" Alias "WritePrivateProfileSectionA" (ByVal lpAppName As String, ByVal lpString As String, ByVal lpFileName As String) As Long
+Declare Function GetWindowsDirectory Lib "kernel32" Alias "GetWindowsDirectoryA" (ByVal lpBuffer As String, ByVal nSize As Long) As Long
+Declare Function GetSystemDirectory Lib "kernel32" Alias "GetSystemDirectoryA" (ByVal lpBuffer As String, ByVal nSize As Long) As Long
+Declare Function GetTempPath Lib "kernel32" Alias "GetTempPathA" (ByVal nBufferLength As Long, ByVal lpBuffer As String) As Long
+Declare Function SetCurrentDirectory Lib "kernel32" Alias "SetCurrentDirectoryA" (ByVal lpPathName As String) As Long
+Declare Function GetCurrentDirectory Lib "kernel32" Alias "GetCurrentDirectory" (ByVal nBufferLength As Long, ByVal lpBuffer As String) As Long
+Declare Function GetDiskFreeSpace Lib "kernel32" Alias "GetDiskFreeSpaceA" (ByVal lpRootPathName As String, lpSectorsPerCluster As Long, lpBytesPerSector As Long, lpNumberOfFreeClusters As Long, lpTotalNumberOfClusters As Long) As Long
+Declare Function CreateDirectory Lib "kernel32" Alias "CreateDirectoryA" (ByVal lpPathName As String, lpSecurityAttributes As SECURITY_ATTRIBUTES) As Long
+Declare Function CreateDirectoryEx Lib "kernel32" Alias "CreateDirectoryExA" (ByVal lpTemplateDirectory As String, ByVal lpNewDirectory As String, lpSecurityAttributes As SECURITY_ATTRIBUTES) As Long
+Declare Function RemoveDirectory Lib "kernel32" Alias "RemoveDirectoryA" (ByVal lpPathName As String) As Long
+Declare Function GetFullPathName Lib "kernel32" Alias "GetFullPathNameA" (ByVal lpFileName As String, ByVal nBufferLength As Long, ByVal lpBuffer As String, ByVal lpFilePart As String) As Long
+Const DDD_RAW_TARGET_PATH = &H1
+Const DDD_REMOVE_DEFINITION = &H2
+Const DDD_EXACT_MATCH_ON_REMOVE = &H4
+Const MAX_PATH = 260
+Declare Function DefineDosDevice Lib "kernel32" Alias "DefineDosDeviceA" (ByVal dwFlags As Long, ByVal lpDeviceName As String, ByVal lpTargetPath As String) As Long
+Declare Function QueryDosDevice Lib "kernel32" Alias "QueryDosDeviceA" (ByVal lpDeviceName As String, ByVal lpTargetPath As String, ByVal ucchMax As Long) As Long
+Declare Function CreateFile Lib "kernel32" Alias "CreateFileA" (ByVal lpFileName As String, ByVal dwDesiredAccess As Long, ByVal dwShareMode As Long, lpSecurityAttributes As SECURITY_ATTRIBUTES, ByVal dwCreationDisposition As Long, ByVal dwFlagsAndAttributes As Long, ByVal hTemplateFile As Long) As Long
+Declare Function SetFileAttributes Lib "kernel32" Alias "SetFileAttributesA" (ByVal lpFileName As String, ByVal dwFileAttributes As Long) As Long
+Declare Function GetFileAttributes Lib "kernel32" Alias "GetFileAttributesA" (ByVal lpFileName As String) As Long
+Declare Function DeleteFile Lib "kernel32" Alias "DeleteFileA" (ByVal lpFileName As String) As Long
+Declare Function FindFirstFile Lib "kernel32" Alias "FindFirstFileA" (ByVal lpFileName As String, lpFindFileData As WIN32_FIND_DATA) As Long
+Declare Function FindNextFile Lib "kernel32" Alias "FindNextFileA" (ByVal hFindFile As Long, lpFindFileData As WIN32_FIND_DATA) As Long
+Declare Function SearchPath Lib "kernel32" Alias "SearchPathA" (ByVal lpPath As String, ByVal lpFileName As String, ByVal lpExtension As String, ByVal nBufferLength As Long, ByVal lpBuffer As String, ByVal lpFilePart As String) As Long
+Declare Function CopyFile Lib "kernel32" Alias "CopyFileA" (ByVal lpExistingFileName As String, ByVal lpNewFileName As String, ByVal bFailIfExists As Long) As Long
+Declare Function MoveFile Lib "kernel32" Alias "MoveFileA" (ByVal lpExistingFileName As String, ByVal lpNewFileName As String) As Long
+Declare Function MoveFileEx Lib "kernel32" Alias "MoveFileExA" (ByVal lpExistingFileName As String, ByVal lpNewFileName As String, ByVal dwFlags As Long) As Long
+Const MOVEFILE_REPLACE_EXISTING = &H1
+Const MOVEFILE_COPY_ALLOWED = &H2
+Const MOVEFILE_DELAY_UNTIL_REBOOT = &H4
+Type EVENTLOGRECORD
+     Length as Long     '  Length of full record
+     Reserved as Long     '  Used by the service
+     RecordNumber as Long     '  Absolute record number
+     TimeGenerated as Long     '  Seconds since 1-1-1970
+     TimeWritten as Long     'Seconds since 1-1-1970
+     EventID as Long
+     EventType as Integer
+     NumStrings as Integer
+     EventCategory as Integer
+     ReservedFlags as Integer     '  For use with paired events (auditing)
+     ClosingRecordNumber as Long     'For use with paired events (auditing)
+     StringOffset as Long     '  Offset from beginning of record
+     UserSidLength as Long
+     UserSidOffset as Long
+     DataLength as Long
+     DataOffset as Long     '  Offset from beginning of record
+End Type
+Declare Function CreateNamedPipe Lib "kernel32" Alias "CreateNamedPipeA" (ByVal lpName As String, ByVal dwOpenMode As Long, ByVal dwPipeMode As Long, ByVal nMaxInstances As Long, ByVal nOutBufferSize As Long, ByVal nInBufferSize As Long, ByVal nDefaultTimeOut As Long, lpSecurityAttributes As SECURITY_ATTRIBUTES) As Long
+Declare Function GetNamedPipeHandleState Lib "kernel32" Alias "GetNamedPipeHandleStateA" (ByVal hNamedPipe As Long, lpState As Long, lpCurInstances As Long, lpMaxCollectionCount As Long, lpCollectDataTimeout As Long, ByVal lpUserName As String, ByVal nMaxUserNameSize As Long) As Long
+Declare Function CallNamedPipe Lib "kernel32" Alias "CallNamedPipeA" (ByVal lpNamedPipeName As String, lpInBuffer As Any, ByVal nInBufferSize As Long, lpOutBuffer As Any, ByVal nOutBufferSize As Long, lpBytesRead As Long, ByVal nTimeOut As Long) As Long
+Declare Function WaitNamedPipe Lib "kernel32" Alias "WaitNamedPipeA" (ByVal lpNamedPipeName As String, ByVal nTimeOut As Long) As Long
+Declare Function SetVolumeLabel Lib "kernel32" Alias "SetVolumeLabelA" (ByVal lpRootPathName As String, ByVal lpVolumeName As String) As Long
+Declare Sub SetFileApisToOEM Lib "kernel32" Alias "SetFileApisToOEM" ()
+Declare Function GetVolumeInformation Lib "kernel32" Alias "GetVolumeInformationA" (ByVal lpRootPathName As String, ByVal lpVolumeNameBuffer As String, ByVal nVolumeNameSize As Long, lpVolumeSerialNumber As Long, lpMaximumComponentLength As Long, lpFileSystemFlags As Long, ByVal lpFileSystemNameBuffer As String, ByVal nFileSystemNameSize As Long) As Long
+Declare Function ClearEventLog Lib "advapi32.dll" Alias "ClearEventLogA" (ByVal hEventLog As Long, ByVal lpBackupFileName As String) As Long
+Declare Function BackupEventLog Lib "advapi32.dll" Alias "BackupEventLogA" (ByVal hEventLog As Long, ByVal lpBackupFileName As String) As Long
+Declare Function CloseEventLog Lib "advapi32.dll" Alias "CloseEventLog" (ByVal hEventLog As Long) As Long
+Declare Function DeregisterEventSource Lib "advapi32.dll" Alias "DeregisterEventSource" (ByVal hEventLog As Long) As Long
+Declare Function GetNumberOfEventLogRecords Lib "advapi32.dll" Alias "GetNumberOfEventLogRecords" (ByVal hEventLog As Long, NumberOfRecords As Long) As Long
+Declare Function GetOldestEventLogRecord Lib "advapi32.dll" Alias "GetOldestEventLogRecord" (ByVal hEventLog As Long, OldestRecord As Long) As Long
+Declare Function OpenEventLog Lib "advapi32.dll" Alias "OpenEventLogA" (ByVal lpUNCServerName As String, ByVal lpSourceName As String) As Long
+Declare Function RegisterEventSource Lib "advapi32.dll" Alias "RegisterEventSourceA" (ByVal lpUNCServerName As String, ByVal lpSourceName As String) As Long
+Declare Function OpenBackupEventLog Lib "advapi32.dll" Alias "OpenBackupEventLogA" (ByVal lpUNCServerName As String, ByVal lpFileName As String) As Long
+Declare Function ReadEventLog Lib "advapi32.dll" Alias "ReadEventLogA" (ByVal hEventLog As Long, ByVal dwReadFlags As Long, ByVal dwRecordOffset As Long, lpBuffer As EVENTLOGRECORD, ByVal nNumberOfBytesToRead As Long, pnBytesRead As Long, pnMinNumberOfBytesNeeded As Long) As Long
+Declare Function ReportEvent Lib "advapi32.dll" Alias "ReportEventA" (ByVal hEventLog As Long, ByVal wType As Long, ByVal wCategory As Long, ByVal dwEventID As Long, lpUserSid As Any, ByVal wNumStrings As Long, ByVal dwDataSize As Long, ByVal lpStrings As Long, lpRawData As Any) As Long
+' Security APIs
+Const TokenUser = 1
+Const TokenGroups = 2
+Const TokenPrivileges = 3
+Const TokenOwner = 4
+Const TokenPrimaryGroup = 5
+Const TokenDefaultDacl = 6
+Const TokenSource = 7
+Const TokenType = 8
+Const TokenImpersonationLevel = 9
+Const TokenSta
